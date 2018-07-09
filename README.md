@@ -8,3 +8,5 @@ along with R code (forthcoming) to visualize the data.
 We thank Evan MacLean and Brian Hare for helping make the data available to us via the original PNAS publication and figshare:
 
 <https://figshare.com/articles/MacLean_et_al_PNAS_2014_Self-Control_Data/5579335>
+
+Our goal is to create an automated, reproducible workflow for (re)visualizing and reanalyzing these fascinating data.

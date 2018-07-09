@@ -56,6 +56,31 @@ download.file(url8, destfile = "../data/csv/A-not-B.csv")
 download.file(url9, destfile = "../data/csv/Cylinder.csv")
 ```
 
+
+```{r docx-to-csv}
+# Here we download the docx files directly and convert them to data frames
+# using functions in package `docxtractr`
+docx_2_csv <- function(doc_fn) {
+  docx_extract_tbl(docxtractr::read_docx(doc_fn))
+}
+
+csv_list <- lapply(list(url1, url2, url3, url4, url5, url6, url7),
+                   docx_2_csv)
+
+supp_fn <- paste0("data/csv/", paste0("s", c(1:7)), paste0(".csv"))
+
+# supp_fn <- c("data/csv/s1.csv",
+#              "data/csv/s2.csv",
+#              "data/csv/s3.csv",
+#              "data/csv/s4.csv",
+#              "data/csv/s5.csv",
+#              "data/csv/s6.csv",
+#              "data/csv/s7.csv")
+
+# Save list of df's as individual csv's
+mapply(write_csv, csv_list, path = supp_fn)
+```
+
 ## Open and make an excel file for the .docx data files
 
 (Do not include the top comments on the .docx files, only copy and paste the tables)
